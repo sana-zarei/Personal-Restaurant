@@ -1,0 +1,949 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <title>Personal Responsive Restaurant</title>
+        <meta name="description" content="Personal Responsive Restaurant">
+        <meta name="keywords" content="Sana Zarei">
+        <meta charset="utf-8">
+        <meta name="author" content="Sana Zarei">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
+        <!-- font awesome -->
+        <link href="{% static 'css/all.min.css' %}" rel="stylesheet">
+        <!-- bootstrap -->
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}"/>
+        <!-- revolution slider -->
+        <link rel="stylesheet" href="{% static 'css/extralayers.css' %}"/>
+        <link rel="stylesheet" href="{% static 'css/settings.css' %}"/>
+        <!-- magnific popup -->
+        <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}"/>
+        <!-- owl carousel -->
+        <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}"/>
+        <link rel="stylesheet" href="{% static 'css/owl.transitions.css' %}"/>
+        <link rel="stylesheet" href="{% static 'css/full-slider.css' %}"/>
+        <!-- hamburger menu  -->
+        <link rel="stylesheet" href="{% static 'css/menu-hamburger.css' %}"/>
+        <!-- common -->
+        <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+        <!-- responsive -->
+        <link rel="stylesheet" href="{% static 'css/responsive.css' %}"/>
+        <!-- Style Switcher -->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style-switcher.css' %}" />
+    </head>
+    <body>
+        <!-- navigation --> 
+        <nav class="navbar navbar-default navbar-fixed-top nav-transparent overlay-nav sticky-nav nav-white nav-border-bottom no-transition" role="navigation">
+            <div class="container">
+                <div class="row">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="col-md-9 text-left">
+                        <div class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="#myCarousel" class="inner-link">Home</a> </li>
+                                <li><a href="#features" class="inner-link">About</a> </li>
+                                <li><a href="#menu" class="inner-link">The Menu</a> </li>
+                                {% comment %} <li><a href="#our-service" class="inner-link">Our Service</a></li> {% endcomment %}
+                                <li><a href="#special_Dishes" class="inner-link">Special Dish</a> </li>
+                                {% if user.is_authenticated %}
+                                <li><a href="#reservation" class="inner-link">Reservation</a> </li>
+                                {% else %}
+                                <li><a href="{% url 'Accounts:login' %}" class="inner-link">Reservation</a> </li>
+                                {% endif %}
+                                <li><a href="#approach" class="inner-link">Popular Dish</a> </li>
+                                {% if user.is_authenticated %}
+                                <li><a href="#contact-us" class="inner-link">Contact</a></li>
+                                {% else %}
+                                <li><a href="{% url 'Accounts:login' %}" class="inner-link">Contact</a></li>
+                                {% endif %}
+                                <li><a href="{% url 'Blog:blog' %}" class="inner-link">Blog</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-6 text-left">
+                        <div class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav navbar-right">
+                                {% if user.is_authenticated %}
+                                <li><a href="{% url 'Accounts:logout' %}" class="inner-link">Logout</a> </li>
+                                {% else %}
+                                <li><a href="{% url 'Accounts:login' %}" class="inner-link">Login</a> </li>
+                                <li><a href="{% url 'Accounts:register' %}" class="inner-link">Register</a></li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- end of navigation -->
+        <!-- Slide -->
+        <section id="myCarousel"> 
+            <div class="tp-banner-container">
+                <div class="revolution-onepage-restaurant" >
+                    <ul>
+                        <!-- slide 1 -->
+                        <li data-transition="random" data-slotamount="1" data-masterspeed="1000" data-thumb="{% static 'images/Slider/onepage-restaurant-slider-03-00.jpg' %}" data-delay="10000" data-saveperformance="off"  data-title="">
+                            <!-- main image -->
+                            <img src="{% static 'images/Slider/onepage-restaurant-slider-03-00.jpg' %}"  alt="fullslide1"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
+                            <!-- layer 1 -->
+                            <div class="tp-caption sfr str"
+                                data-x="center" data-hoffset="472"
+                                data-y="center" data-voffset="-44"
+                                data-speed="500"
+                                data-start="1500"
+                                data-easing="Power3.easeInOut"
+                                data-splitin="none"
+                                data-splitout="none"
+                                data-elementdelay="0.1"
+                                data-endelementdelay="0.1"
+                                style="z-index: 20;">
+                                <img src="{% static 'images/Slider/onepage-restaurant-slider-02-01.png' %}" alt="" >
+                            </div>
+                            <!-- layer 2 -->
+                            <div class="tp-caption sfr str"
+                                data-x="center" data-hoffset="600"
+                                data-y="center" data-voffset="80"
+                                data-speed="500"
+                                data-start="1800"
+                                data-easing="Power3.easeInOut"
+                                data-splitin="none"
+                                data-splitout="none"
+                                data-elementdelay="0.1"
+                                data-endelementdelay="0.1"
+                                style="z-index: 19;">
+                                <img src="{% static 'images/Slider/onepage-restaurant-slider-02-02.png' %}" alt="" >
+                            </div>
+                            <!-- layer 3 -->
+                            <div class="tp-caption sfr str"
+                                data-x="center" data-hoffset="800"
+                                data-y="center" data-voffset="380"
+                                data-speed="500"
+                                data-start="2100"
+                                data-easing="Power3.easeInOut"
+                                data-splitin="none"
+                                data-splitout="none"
+                                data-elementdelay="0.1"
+                                data-endelementdelay="0.1"
+                                style="z-index: 21;">
+                                <img src="{% static 'images/Slider/onepage-restaurant-slider-02-03.png' %}" alt="" >
+                            </div>
+                            <!-- layer 4 -->
+                            <div class="tp-caption sfr str"
+                                data-x="center" data-hoffset="150"
+                                data-y="center" data-voffset="-280"
+                                data-speed="500"
+                                data-start="2400"
+                                data-easing="Power3.easeInOut"
+                                data-splitin="none"
+                                data-splitout="none"
+                                data-elementdelay="0.1"
+                                data-endelementdelay="0.1"
+                                style="z-index: 21;">
+                                <img src="{% static 'images/Slider/onepage-restaurant-slider-02-04.png' %}" alt="" >
+                            </div>
+                            <!-- layer 5 -->
+                            <div class="tp-caption sfr str"
+                                data-x="center" data-hoffset="280"
+                                data-y="center" data-voffset="-330"
+                                data-speed="500"
+                                data-start="2700"
+                                data-easing="Power3.easeInOut"
+                                data-splitin="none"
+                                data-splitout="none"
+                                data-elementdelay="0.1"
+                                data-endelementdelay="0.1"
+                                style="z-index: 21;">
+                                <img src="{% static 'images/Slider/onepage-restaurant-slider-02-05.png' %}" alt="" >
+                            </div>
+                            <!-- layer 6 -->
+                            <div class="tp-caption sfr str"
+                                data-x="center" data-hoffset="520"
+                                data-y="center" data-voffset="-70"
+                                data-speed="500"
+                                data-start="3000"
+                                data-easing="Power3.easeInOut"
+                                data-splitin="none"
+                                data-splitout="none"
+                                data-elementdelay="0.1"
+                                data-endelementdelay="0.1"
+                                style="z-index: 21;">
+                                <img src="{% static 'images/Slider/onepage-restaurant-slider-02-06.png' %}" alt="" >
+                            </div>
+                            <!-- layer 7 -->
+                            <div class="tp-caption sfl stl"
+                                data-x="center" data-hoffset="-280"
+                                data-y="center" data-voffset="130"
+                                data-speed="500"
+                                data-start="3300"
+                                data-easing="Power3.easeInOut"
+                                data-splitin="none"
+                                data-splitout="none"
+                                data-elementdelay="0.1"
+                                data-endelementdelay="0.1"
+                                style="z-index: 21;">
+                                <img src="{% static 'images/Slider/onepage-restaurant-slider-02-07.png' %}" alt="" >
+                            </div>
+                            <!-- LAYER 8 -->
+                            <div class="tp-caption light_medium_40_shadowed tp-resizeme"
+                                data-x="30"
+                                data-y="center" data-voffset="-100"
+                                data-speed="500"
+                                data-start="3600"
+                                data-easing="Power4.easeOut"
+                                data-splitin="none"
+                                data-splitout="none"
+                                data-elementdelay="0.01"
+                                data-endelementdelay="0.1"
+                                data-endspeed="500"
+                                data-endeasing="Power4.easeIn"
+                                style="z-index: 47; max-width: auto; max-height: auto;">Enjoy a wonderful<br>dining experience.
+                            </div>
+                            <!-- LAYER 9 -->
+                            <div class="tp-caption regular_small_text_18 tp-resizeme"
+                                data-x="30"
+                                data-y="center" data-voffset="-30"
+                                data-speed="500"
+                                data-start="3900"
+                                data-easing="Power4.easeOut"
+                                data-splitin="none"
+                                data-splitout="none"
+                                data-elementdelay="0.01"
+                                data-endelementdelay="0.1"
+                                data-endspeed="500"
+                                data-endeasing="Power4.easeIn"
+                                style="z-index: 47; max-width: auto; max-height: auto;">Simply but delicious food.
+                            </div>
+                            <!-- LAYER 10 -->
+                            <div class="tp-caption customin tp-resizeme"
+                                data-x="30"
+                                data-y="center" data-voffset="30"
+                                data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                data-speed="500"
+                                data-start="4200"
+                                data-easing="Power3.easeInOut"
+                                data-splitin="none"
+                                data-splitout="none"
+                                data-elementdelay="0.1"
+                                data-endelementdelay="0.1"
+                                data-linktoslide="next"
+                                style="z-index: 22; max-width: auto; max-height: auto; white-space: nowrap;">
+                                <a href='#menu' class='largeredbtn'>our Menu</a>
+                            </div>
+                        </li>
+                        <!-- slide 2 -->
+                        <li data-transition="random" data-slotamount="1" data-masterspeed="1000" data-thumb="{% static 'images/Slider/onepage-restaurant-slider-03-00.jpg' %}" data-delay="10000" data-saveperformance="off"  data-title="">
+                            <!-- main image -->
+                            <img src="{% static 'images/Slider/onepage-restaurant-slider-03-00.jpg' %}"  alt="fullslide1"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
+                            <!-- layer 1 -->
+                            <div class="tp-caption sfr str"
+                                data-x="center" data-hoffset="472"
+                                data-y="center" data-voffset="50"
+                                data-speed="500"
+                                data-start="1500"
+                                data-easing="Power3.easeInOut"
+                                data-splitin="none"
+                                data-splitout="none"
+                                data-elementdelay="0.1"
+                                data-endelementdelay="0.1"
+                                style="z-index: 20;">
+                                <img src="{% static 'images/Slider/onepage-restaurant-slider-03-01.png' %}" alt="" >
+                            </div>
+                            <!-- layer 2 -->
+                            <div class="tp-caption sfl stl"
+                                data-x="center" data-hoffset="-690"
+                                data-y="center" data-voffset="330"
+                                data-speed="500"
+                                data-start="2000"
+                                data-easing="Power3.easeInOut"
+                                data-splitin="none"
+                                data-splitout="none"
+                                data-elementdelay="0.1"
+                                data-endelementdelay="0.1"
+                                style="z-index: 20;">
+                                <img src="{% static 'images/Slider/onepage-restaurant-slider-03-02.png' %}" alt="" >
+                            </div>
+                            <!-- LAYER 3 -->
+                            <div class="tp-caption light_medium_40_shadowed tp-resizeme"
+                                data-x="30"
+                                data-y="center" data-voffset="-100"
+                                data-speed="500"
+                                data-start="2500"
+                                data-easing="Power4.easeOut"
+                                data-splitin="none"
+                                data-splitout="none"
+                                data-elementdelay="0.01"
+                                data-endelementdelay="0.1"
+                                data-endspeed="500"
+                                data-endeasing="Power4.easeIn"
+                                style="z-index: 47;max-width: auto; max-height: auto;">have a great time
+                            </div>
+                            <!-- LAYER 4 -->
+                            <div class="tp-caption regular_small_text_18 tp-resizeme"
+                                data-x="30"
+                                data-y="center" data-voffset="-55"
+                                data-speed="500"
+                                data-start="3000"
+                                data-easing="Power4.easeOut"
+                                data-splitin="none"
+                                data-splitout="none"
+                                data-elementdelay="0.01"
+                                data-endelementdelay="0.1"
+                                data-endspeed="500"
+                                data-endeasing="Power4.easeIn"
+                                style="z-index: 47; max-width: auto; max-height: auto;">Only the best ingredients for our dishes
+                            </div>
+                            <!-- LAYER 5 -->
+                            <div class="tp-caption customin tp-resizeme"
+                                data-x="30"
+                                data-y="center" data-voffset="10"
+                                data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                data-speed="500"
+                                data-start="3500"
+                                data-easing="Power3.easeInOut"
+                                data-splitin="none"
+                                data-splitout="none"
+                                data-elementdelay="0.1"
+                                data-endelementdelay="0.1"
+                                data-linktoslide="next"
+                                style="z-index: 22; max-width: auto; max-height: auto; white-space: nowrap;">
+                                <a href='#approach' class='largeredbtn'>Popular dish</a>
+                            </div>
+                        </li>
+                    </ul>		
+                    <div class="tp-bannertimer"></div>	
+                </div>
+            </div>
+        </section>
+        <!-- about section -->
+        <section id="features" class="features animate slow-mo even fadeIn no-padding-bottom xs-onepage-section" data-anim-type="fadeIn" data-anim-delay="200">
+            <div class="container">
+                <div class="row">
+                    <!-- section title -->
+                    <div class="col-md-4 col-sm-8 dividers-header double-line center-col text-center margin-five no-margin-top">
+                        <div class="subheader bg-white">
+                            <h3 class="title-med no-padding-bottom letter-spacing-2">About Us</h3>
+                        </div>
+                    </div>
+                    <!-- end section title -->
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-sm-12 sm-margin-bottom-ten">
+                        <p class="text-large no-margin-bottom">{{ about.greetings_1 }}</p>
+                        <h1 class="margin-five no-margin-top">{{ about.greetings_2 }}</h1>
+                        <p class="margin-five text-med width-90 no-margin-bottom">{{ about.greetings_3 }}</p>
+                        <a href="#menu" class="highlight-button-black-border btn btn-small no-margin-bottom inner-link">Discover Menu</a>
+                    </div>
+                    <div class="col-md-4 col-sm-6 xs-margin-bottom-ten">
+                        <img src="{{ about.image1.url }}" alt="">
+                        <p class="text-uppercase letter-spacing-2 black-text font-weight-600 margin-ten no-margin-bottom">{{ about.title1 }}</p>
+                        <p class="margin-two text-med width-90">{{ about.description_1 }}</p>
+                        <div class="thin-separator-line bg-dark-gray no-margin-lr"></div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <img src="{{ about.image2.url }}" alt="">
+                        <p class="text-uppercase letter-spacing-2 black-text font-weight-600 margin-ten no-margin-bottom">{{ about.title2 }}</p>
+                        <p class="margin-two text-med width-90">{{ about.description_2 }}</p>
+                        <div class="thin-separator-line bg-dark-gray no-margin-lr"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end about section -->
+        <!-- feature box section -->
+        <section class="no-padding-bottom person-grid">
+            <div class="row center-col">
+                <div class="col-lg-4 col-md-4 col-sm-4 no-padding">
+                    <img src="{{ about.image3.url }}" alt="">
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 no-padding grid bg-black">
+                    <div class="gallery-img"><a href="#contact-us" class="inner-link"><img src="{{ about.image4.url }}" alt=""></a></div>
+                    <figure>
+                        <figcaption class="md-bottom-10">
+                            <span class="owl-title white-text position-relative margin-five">Art of Food!</span>
+                            <p class="margin-five white-text text-med width-70 center-col position-relative no-margin-bottom sm-display-none xs-display-block">Lorem Ipsum is simply dummy text of the printing &amp; typesetting industry. Lorem Ipsum has been the industry.</p>
+                            <a class="btn-small-white btn btn-medium position-relative no-margin-right margin-five inner-link" href="#contact-us">Book Now!</a>
+                            <span class="margin-ten display-block"></span>
+                        </figcaption>
+                    </figure>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 no-padding">
+                    <img src="{{ about.image5.url }}" alt="">
+                </div>
+            </div>
+        </section>
+        <!-- end feature box section -->
+        <!-- our menu section -->
+        <section id="menu" class="grid-wrap work-4col margin-top-section no-margin-top border-top no-padding-bottom xs-onepage-section">
+                <div class="container" >
+                    <div class="row">
+                        <!-- section title -->
+                        <div class="col-md-4 col-sm-8 dividers-header double-line center-col text-center margin-four no-margin-top">
+                            <div class="subheader bg-white">
+                                <h3 class="title-med no-padding-bottom letter-spacing-2">The Menu</h3>
+                            </div>
+                        </div>
+                        <!-- end section title -->
+                    </div>
+                <div class="container-fluid">
+                    <div class="row no-padding"> 
+                        <div class="col-md-12 text-center" >
+                            <div class="text-center">
+                                <ul class="portfolio-filter nav nav-tabs">
+                                    <li class="nav active"><a href="#" data-filter="*">All</a></li>
+                                    {% for item in category %}
+                                    <li class="nav"><a href="#" data-filter=".{{ item.name }}">{{ item.name }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="grid-gallery overflow-hidden" >
+                            <div class="tab-content">
+                                <ul class="masonry-items grid lightbox-gallery">
+                                    {% for item in food_menu %}
+                                    <!-- menu item -->
+                                    <li class="{{ item.category }}">
+                                        <figure>
+                                            <div class="gallery-img">
+                                                <a href="{{ item.image.url }}" title="">
+                                                    <img src="{{ item.image.url }}" alt="">
+                                                </a>
+                                            </div>
+                                            <figcaption>
+                                                <h3>{{ item.title }}</h3>
+                                                <p>One Dish - ${{ item.price }}</p>
+                                            </figcaption>
+                                        </figure>
+                                    </li>
+                                    <!-- end menu item -->
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <!-- end our menu section -->
+        <!-- our service section -->
+        <section id="our-service" class="restaurant-our-service xs-onepage-section">
+            <div class="container">
+                <div class="row">
+                    <!-- section title -->
+                    <div class="col-md-4 col-sm-8 dividers-header double-line center-col text-center margin-one no-margin-top">
+                        <div class="subheader bg-white">
+                            <h3 class="title-med no-padding-bottom letter-spacing-2">Our Service</h3>
+                        </div>
+                    </div>
+                    <!-- end section title -->
+                </div>
+                <div class="row">
+                    <!-- section text -->
+                    {% comment %} <div class="col-md-5 col-sm-7 center-col text-center">
+                        <h4 class="gray-text">Lorem Ipsum is simply dummy text of the printing & typesetting industry. Lorem Ipsum has been the industry's standard dummy </h4>
+                    </div> {% endcomment %}
+                    <!-- end section text -->
+                </div>
+                <div class="row margin-ten no-margin-bottom">
+                    {% for item in service %}
+                    <!-- service item -->
+                    <div class="col-md-3 col-sm-6 col-xs-12 text-center sm-margin-bottom-ten">
+                        <img src="{{ item.image.url }}" alt=""/>
+                        <p class="text-uppercase letter-spacing-2 black-text font-weight-600 margin-ten no-margin-bottom">{{ item.title }}</p>
+                        <p class="margin-two width-90 center-col">{{ item.description_1 }}</p>
+                        <div class="thin-separator-line bg-dark-gray"></div>
+                    </div>
+                    <!-- end service item -->
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <!-- end our service section -->
+        <!-- special dishes section -->
+        <section id="special_Dishes" class="cover-background" style="background-image:url('{% static 'images/4.jpg' %}');">
+            <div class="container">
+                <div class="row">
+                    <!-- section title -->
+                    <div class="col-md-4 col-sm-8 dividers-header double-line center-col text-center margin-five no-margin-top">
+                        <div class="subheader bg-white">
+                            <h3 class="title-med no-padding-bottom letter-spacing-2">Special Dishes</h3>
+                        </div>
+                    </div>
+                    <!-- end section title -->
+                </div>
+                <div class="row">
+                    {% for item in special_Dishes %}
+                    <!-- dishes item -->
+                    <div class="col-sm-4 col-sm-12 special-dishes xs-margin-bottom-ten">
+                        <div class="position-relative">
+                            <img src="{{ item.image.url }}" alt="">
+                            <span class="special-dishes-price bg-white">${{ item.price }}</span>
+                        </div>
+                        <p class="text-uppercase letter-spacing-2 black-text font-weight-600 margin-ten no-margin-bottom">{{ item.title }}</p>
+                        <p class="margin-two text-med width-90">{{ item.description }}</p>
+                        <div class="thin-separator-line bg-dark-gray no-margin-lr"></div>
+                    </div>
+                    <!-- end dishes item -->
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <!-- end special dishes section -->
+        {% comment %} {% if user.is_authenticated %} {% endcomment %}
+        <!-- reservation section -->
+        <section id="reservation" class="border-bottom no-padding-bottom">
+            <div class="container">
+                <div class="row">
+                    <!-- section title -->
+                    <div class="col-md-4 col-sm-8 dividers-header double-line center-col text-center margin-two no-margin-top">
+                        <div class="subheader bg-white">
+                            <h3 class="title-med no-padding-bottom letter-spacing-2">Reservation</h3>
+                        </div>
+                    </div>
+                    <!-- end section title -->
+                </div>
+                <div class="row">
+                    <!-- section text -->
+                    <div class="col-md-5 col-sm-7 margin-three center-col text-center margin-five no-margin-top">
+                        {% comment %} <h4 class="gray-text">Lorem Ipsum is simply dummy text of the printing & typesetting industry. Lorem Ipsum has been the industry's standard dummy </h4> {% endcomment %}
+                    </div>
+                    <!-- end section text -->
+                </div>
+                <form class="row" id="reservationform" action="" method="post">
+                    {% csrf_token %}
+                    <div class="col-md-10 col-sm-12 center-col">
+                        <div class="col-md-6 col-sm-12 reservation-name">
+                            <input name="name" type="text" placeholder="Your Name" required="True" class="input-round big-input">
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="select-style input-round big-input">
+                                <select name="date" required="True">
+                                    <option selected="selected" value="">Select Day</option>
+                                    {% for item in reservation_date %}
+                                    <option value="{{ item.date }}"> {{ item.date }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="select-style input-round big-input">
+                                <select name="time" required="True">
+                                    <option selected="selected" value="">Select Time</option>
+                                    {% for item in reservation_time %}
+                                    <option value="{{ item.time }}">{{ item.time }}</option>
+                                    {% endfor %}
+                                </select> 
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="select-style input-round big-input">
+                                <select name="count" required="True">
+                                    <option selected="selected" value="">Select Number Of Person</option>
+                                    {% for item in reservation_count %}
+                                    <option value="{{ item.count }}">{{ item.count }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="select-style input-round big-input">
+                                <select name="table_number" required="True">
+                                    <option selected="selected" value="">Select Table</option>
+                                    {% for item in reservation_table_number %}
+                                    <option value="{{ item.table_number }}">{{ item.table_number }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        {% if user.is_authenticated %}
+                        <div class="col-md-12 col-sm-12 text-center">
+                            <div class="col-sm-12 no-padding-right padding-two">
+                                <input id="reservationform-button" type="submit" class="btn btn-black btn-medium btn-round no-margin-bottom no-margin-top" value="send message" name="send-message1">
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="col-md-12 col-sm-12 text-center">
+                            <div class="col-sm-12 no-padding-right padding-two">
+                                <a href="{% url 'Accounts:login' %}" id="reservationform-button"  class="btn btn-black btn-medium btn-round no-margin-bottom no-margin-top" >Send Message</a>
+                            </div>
+                        </div>
+
+                        {% endif %}
+                        <div class="col-md-12 col-sm-12 text-center">
+                            <img src="{% static 'images/onepage-reservation.jpg' %}" alt=""/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <!-- end reservation section -->
+        {% comment %} <!-- {% endif %} --> {% endcomment %}
+        <!-- popular dish section -->
+        <section id="approach" class="approach bg-light-yellow">
+            <div id="myCarousel3" class="carousel slide carousel-slide"> 
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-8 dividers-header double-line center-col text-center margin-five no-margin-top">
+                            <div class="subheader bg-light-yellow">
+                                <h3 class="title-med no-padding-bottom letter-spacing-2">Popular dish</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                {% for item in popular_dishes %}
+                                <div class="col-md-4 col-sm-4 special-dishes xs-margin-bottom-ten">
+                                    <div class="position-relative">
+                                        <img src="{{ item.image.url }}" alt="">
+                                        <span class="special-dishes-price bg-light-yellow">${{ item.price }}</span>
+                                    </div>
+                                    <p class="text-uppercase letter-spacing-2 black-text font-weight-600 margin-ten no-margin-bottom">{{ item.title }}</p>
+                                    <p class="margin-two text-med width-90">{{ item.description }}</p>
+                                    <div class="thin-separator-line bg-dark-gray no-margin-lr"></div>
+                                </div>
+                            {% if forloop.counter|divisibleby:3 and not forloop.last %}
+                            </div>
+                            <div class="item">
+                            {% endif %}
+                            {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- slider controls --> 
+                    <a class="left carousel-control" href="#myCarousel3" data-slide="prev"> <img src="{% static 'images/arrow-pre.png' %}" alt=""/> </a>
+                    <a class="right carousel-control" href="#myCarousel3" data-slide="next"> <img src="{% static 'images/arrow-next.png' %}" alt=""/> </a>
+                    <!-- end slider controls --> 
+                </div>
+            </div>
+        </section>
+        <!-- end popular dish section -->
+        <!-- blog section -->
+        <section id="blog" class="xs-onepage-section">
+            <div class="container">
+                <div class="row">
+                    <!-- section title -->
+                    <div class="col-md-4 col-sm-8 dividers-header double-line center-col text-center margin-ten no-margin-top">
+                        <div class="subheader bg-white">
+                            <h3 class="title-med no-padding-bottom letter-spacing-2">Blog</h3>
+                        </div>
+                    </div>
+                    <!-- end section title -->
+                </div>
+                <div class="row">
+                    {% for item in article %}
+                    <!-- blog item -->
+                    <div class="col-md-4 col-sm-4 xs-margin-bottom-seven">
+                        <div class="blog-post">
+                            <div class="blog-post-images"><a href="{% url 'Blog:blogdetails' item.slug %}"><img src="{{ item.image.url }}" alt=""></a></div>
+                            <div class="post-details">
+                                <a href="{% url 'Blog:blogdetails' item.slug %}" class="post-title">{{ item.title }}</a>
+                                <span class="post-author">{{ item.created }}</span>
+                                <p>{{ item.description|truncatewords:15 }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end blog item -->
+                    {% endfor %}
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <a href="{% url 'Blog:blog' %}" class="btn btn-black btn-small margin-four no-margin-bottom">View All Blog Post</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end blog section -->
+        <!-- parallax section -->
+        <section class="cover-background no-padding" style="background-image:url('{% static 'images/SAVE_20220222_160037.jpg' %}');">
+            <div class="container-fluid no-padding">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 f-right services-main restaurant-services">
+                        <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12 services-sub-section wow fadeInUp">
+                            <h1 class="white-text">{{ event_bottom.title }}</h1>
+                            <p class="text-med width-90 margin-five white-text no-margin-bottom">{{ event_bottom.description1 }}</p>
+                            <a class="btn-small-white btn btn-small inner-link" href="#reservation">Reserve Now</a>
+                            <a class="btn-small-white btn btn-small inner-link" href="#menu">Our Menu</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end parallax section -->
+        <!-- testimonial section -->
+        <section id="testimonial" class="border-bottom">
+            <div class="row">
+                <!-- section title -->
+                <div class="col-md-4 col-sm-8 dividers-header double-line center-col text-center margin-five no-margin-top">
+                    <div class="subheader bg-white">
+                        <h3 class="title-med no-padding-bottom letter-spacing-2">Testimonial</h3>
+                    </div>
+                </div>
+                <!-- end section title -->
+            </div>
+            <div class="container">
+                <div class="row">
+                    {% for item in testimonial %}
+                    <!-- testimonial item -->
+                    <div class="col-md-4 col-sm-4 testimonial-style2 text-center xs-margin-bottom-ten">
+                        <img alt="" src="{{ item.image.url }}">
+                        <p class="center-col width-90">{{ item.description }}</p>
+                        <div class="margin-two">
+                            <i class="fa fa-star yellow-text"></i>
+                            <i class="fa fa-star yellow-text"></i>
+                            <i class="fa fa-star yellow-text"></i>
+                            <i class="fa fa-star yellow-text"></i>
+                            <i class="fa fa-star yellow-text"></i>
+                        </div>
+                        <span class="name black-text">{{ item.name }}</span>
+                    </div>
+                    <!-- end testimonial item -->
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <!-- end testimonial section -->
+        {% comment %} {% if user.is_authenticated %} {% endcomment %}
+        <!-- contact us section -->
+        <section id="contact-us" class="cover-background xs-onepage-section" style="background-image:url('{% static 'images/4.jpg' %}');">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-8 dividers-header double-line center-col text-center margin-two no-margin-top">
+                        <div class="subheader bg-white">
+                            <h3 class="title-med no-padding-bottom letter-spacing-2">Contact Us</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-9 text-center center-col">
+                        <div class="col-md-4 col-sm-4 text-center xs-margin-bottom-ten">
+                            <i class="icon-phone medium-icon black-text"></i>
+                            <h6 class="black-text margin-two no-margin-bottom">{{ contact.phone }}</h6>
+                        </div>
+                        <div class="col-md-4 col-sm-4 text-center xs-margin-bottom-ten">
+                            <i class="icon-map-pin medium-icon black-text"></i>
+                            <h6 class="black-text margin-two no-margin-bottom">{{ contact.address }}</h6>
+                        </div>
+                        <div class="col-md-4 col-sm-4 text-center">
+                            <i class="icon-envelope medium-icon black-text"></i>
+                            <h6 class="black-text margin-two no-margin-bottom">
+                                <a href="mailto:{{ contact.email }}" class="black-text">{{ contact.email }}</a>
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- form -->
+                    <form id="contactusform" action="" method="post">
+                        {% csrf_token %}
+                        <div class="col-md-10 col-sm-12 center-col">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12"><div class="wide-separator-line margin-ten"></div></div>
+                                <div class="col-md-12 col-sm-12"><div id="success"></div></div>
+                                <div class="row">
+                                    <!-- section text -->
+                                    <div class="col-md-5 col-sm-7 margin-three center-col text-center margin-five no-margin-top">
+                                        <h2 class="gray-text" >Have any questions?</h2>
+                                        <br>
+                                        <h3 class="gray-text"> We'd love to hear from you.</h3>
+                                    </div>
+                                
+                            </div>
+
+                                <!-- end section text -->
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                {% comment %} <input name="name2" type="text" placeholder="Enter Your Name {Required}" required="True"/>
+                                <input name="subject" type="text" placeholder="Enter Your Subject {Required}" required="True"/>
+                                <input name="email" type="text" placeholder="Enter Your Email {Required}" required="True"/> {% endcomment %}
+                                {{ form2.name2 }}
+                                {{ form2.subject }}
+                                {{ form2.email }}
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                {% comment %} <textarea name="message" placeholder="Enter Your Message {Required}" required="True" cols="40" rows="10"></textarea> {% endcomment %}
+                                {{ form2.message }}
+                            </div>
+                            {% if user.is_authenticated %}
+                            <div class="col-md-12 col-sm-12">
+                                <div class="col-md-3 col-sm-6 f-right no-padding-right">
+                                    <input name="send-message2" type="submit" value="send message" class="btn btn-black no-margin-top f-right no-margin-lr">
+                                </div>
+                            </div>
+                            {% else %}
+                            <div class="col-md-12 col-sm-12">
+                                <div class="col-md-3 col-sm-6 f-right no-padding-right">
+                                    <a  href="{% url 'Accounts:login' %}" name="send-message2" class="btn btn-black no-margin-top f-right no-margin-lr">Send Message</a>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </form>
+                    <!-- end form -->
+                </div>
+            </div>
+        </section>
+        <!-- end contact us section -->
+        {% comment %} <!-- {% endif %} --> {% endcomment %}
+        <!-- Style Switcher Start -->
+        <div class="style-switcher outer-shadow">
+            <!-- Audio Theme Start -->
+            <div class="audio s-icon outer-shadow hover-in-shadow">
+                <audio id="myAudio" loop="loop" src="{{ audio.audio.url }}" type="audio/mp3"></audio>
+                <i class="fa fa-music pause"></i>
+            </div>
+            <!-- Audio Theme End -->
+        </div>
+        <!-- Style Switcher End -->
+        <!-- footer -->
+        <footer>
+            {% comment %} <div class=" bg-white footer-top">
+                <div class="container">
+                    <div class="row margin-four">
+                        <!-- phone -->
+                        <div class="col-md-4 col-sm-4 text-center"><i class="icon-phone small-icon black-text"></i><h6 class="black-text margin-two no-margin-bottom">{{ contact.phone }}</h6></div>
+                        <!-- end phone -->
+                        <!-- address -->
+                        <div class="col-md-4 col-sm-4 text-center"><i class="icon-map-pin small-icon black-text"></i><h6 class="black-text margin-two no-margin-bottom">{{ contact.address }}</h6></div>
+                        <!-- end address -->
+                        <!-- email -->
+                        <div class="col-md-4 col-sm-4 text-center"><i class="icon-envelope small-icon black-text"></i><h6 class="margin-two no-margin-bottom"><a href="mailto:{{ contact.email }}" class="black-text">{{ contact.email }}</a></h6></div>
+                        <!-- end email -->
+                    </div>
+                </div>
+            </div> {% endcomment %}
+            <div class="container onepage-footer-middle">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 footer-social text-right text-center">
+                        {% for item in profile %}
+                        <!-- social media link -->
+                        <a target="_blank" href="{{ item.link }}"><i class="fa-brands fa-{{item.name}}" aria-hidden="true"></i></a>
+                        <!-- end social media link -->
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid bg-dark-gray footer-bottom">
+                <div class="container">
+                    <div class="row margin-three">
+                        <!-- copyright -->
+                        <div class="col-md-6 col-sm-6 col-xs-12 copyright text-left letter-spacing-1 xs-text-center xs-margin-bottom-one">
+                            &copy; 2022 Restaurant Theme is proudly powered by SANA ZAREI.
+                        </div>
+                        <!-- end copyright -->
+                        <!-- logo -->
+                        <div class="col-md-6 col-sm-6 col-xs-12 footer-logo text-right xs-text-center">
+                            <a href="index.html"><img src="#" alt=""/></a>
+                        </div>
+                        <!-- end logo -->
+                    </div>
+                </div>
+            </div>
+            <!-- scroll to top --> 
+            <a href="javascript:;" class="scrollToTop"><i class="fa fa-angle-up"></i></a> 
+            <!-- scroll to top end... --> 
+        </footer>
+        <!-- end footer -->
+
+        <!-- javascript libraries / javascript files set #2 --> 
+        <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/modernizr.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script> 
+        <script type="text/javascript" src="{% static 'js/jquery.easing.1.3.js' %}"></script> 
+        <script type="text/javascript" src="{% static 'js/skrollr.min.js' %}"></script>  
+        <script type="text/javascript" src="{% static 'js/jquery.viewport.mini.js' %}"></script>  
+        <script type="text/javascript" src="{% static 'js/smooth-scroll.js' %}"></script>
+        <!-- jquery appear -->
+        <script type="text/javascript" src="{% static 'js/jquery.appear.js' %}"></script>
+        <!-- animation -->
+        <script type="text/javascript" src="{% static 'js/wow.min.js' %}"></script>
+        <!-- page scroll -->
+        <script type="text/javascript" src="{% static 'js/page-scroll.js' %}"></script>
+        <!-- easy piechart-->
+        <script type="text/javascript" src="{% static 'js/jquery.easypiechart.js' %}"></script>
+        <!-- parallax -->
+        <script type="text/javascript" src="{% static 'js/jquery.parallax-1.1.3.js' %}"></script>
+        <!--portfolio with shorting tab --> 
+        <script type="text/javascript" src="{% static 'js/jquery.isotope.min.js' %}"></script> 
+        <!-- owl slider  -->
+        <script type="text/javascript" src="{% static 'js/owl.carousel.min.js' %}"></script>
+        <!-- magnific popup  -->
+        <script type="text/javascript" src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/popup-gallery.js' %}"></script>
+        <!-- text effect  -->
+        <script type="text/javascript" src="{% static 'js/text-effect.js' %}"></script>
+        <!-- revolution slider  -->
+        <script type="text/javascript" src="{% static 'js/jquery.tools.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/jquery.revolution.js' %}"></script>
+        <!-- counter  -->
+        <script type="text/javascript" src="{% static 'js/counter.js' %}"></script>
+        <!-- countTo -->
+        <script type="text/javascript" src="{% static 'js/jquery.countTo.js' %}"></script>
+        <!-- fit videos  -->
+        <script type="text/javascript" src="{% static 'js/jquery.fitvids.js' %}"></script>
+        <!-- imagesloaded  -->
+        <script type="text/javascript" src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
+        <!-- hamburger menu-->
+        <script type="text/javascript" src="{% static 'js/classie.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/hamburger-menu.js' %}"></script>
+        <!-- one page navigation --> 
+        <script type="text/javascript" src="{% static 'js/one-page-main.js' %}"></script>
+        <!-- style switcher js -->
+        <script src="{% static 'js/style-switcher.js' %}"></script>
+        <!-- setting --> 
+        <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+
+        <script>
+            const form1 = document.getElementById("reservationform");
+            form1.addEventListener("submit", submitHandler);
+
+            function submitHandler(event) {
+                event.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'Restaurant:home' %}",
+                    data: $("#reservationform").serialize(),
+                    dataType: "json",
+                    success: function sucessHandler(data)
+                    {
+                        if (data.msg === "Success") 
+                        {
+                            alert("Reservation completed");
+                            document.getElementById("reservationform").reset();
+                        }
+                        else if (data.msg === "Error")
+                        {
+                            alert("This day, hour and table number are reserved. Please select another day and time");
+                        }
+                    }
+                });
+            }
+        </script>
+
+        <script>
+            const form2 = document.getElementById("contactusform");
+            form2.addEventListener("submit", submitHandler);
+    
+            function submitHandler(event) {
+                event.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'Restaurant:home' %}",
+                    data: $("#contactusform").serialize(),
+                    dataType: "json",
+                    success: sucessHandler,
+                });
+            }
+    
+            function sucessHandler(data) {
+                if (data.msg2 === "Success") {
+                    alert("Your Message sent");
+                    $("#contactusform")[0].reset();
+                }
+            }
+        </script>
+
+    </body>
+</html>

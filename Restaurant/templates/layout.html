@@ -1,0 +1,181 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <title>{% block pagetitle %} {% endblock %}</title>
+        <meta name="description" content="Personal Responsive Restaurant">
+        <meta name="keywords" content="Sana Zarei">
+        <meta charset="utf-8">
+        <meta name="author" content="Sana Zarei">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
+        <!-- animation --> 
+        <link rel="stylesheet" href="{% static 'css/animate.css' %}" />
+        <!-- bootstrap --> 
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+        <!-- et line icon --> 
+        <link rel="stylesheet" href="{% static 'css/et-line-icons.css' %}" />
+        <!-- font awesome -->
+        <link href="{% static 'css/all.min.css' %}" rel="stylesheet">
+        <!-- revolution slider -->
+        <link rel="stylesheet" href="{% static 'css/extralayers.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/settings.css' %}" />
+        <!-- magnific popup -->
+        <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" />
+        <!-- owl carousel -->
+        <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/owl.transitions.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/full-slider.css' %}" />
+        <!-- text animation -->
+        <link rel="stylesheet" href="{% static 'css/text-effect.css' %}" />
+        <!-- hamburger menu  -->
+        <link rel="stylesheet" href="{% static 'css/menu-hamburger.css' %}" />
+        <!-- common -->
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+        <!-- responsive -->
+        <link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
+
+    </head>
+    <body>
+        <!-- head section -->
+        <section class="content-top-margin page-title page-title-small border-bottom-light border-top-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-sm-12 wow fadeInUp" data-wow-duration="300ms">
+                        <!-- page title -->
+                        <h1 class="black-text">{% block title %}  {% endblock %}</h1>
+                        <!-- end page title -->
+                    </div>
+                    <div class="col-md-4 col-sm-12 breadcrumb text-uppercase wow fadeInUp xs-display-none" data-wow-duration="600ms">
+                        <!-- breadcrumb -->
+                        <ul>
+                            <li><a href="{% url 'Restaurant:home' %}">Home</a></li>
+                            <li><a href="{% url 'Blog:blog' %}">{% block breadcrumb0 %}  {% endblock %}</a></li>
+                            <li>{% block breadcrumb %}  {% endblock %}</li>
+                        </ul>
+                        <!-- end breadcrumb -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end head section -->
+
+        {% block main %} 
+        <!-- content section -->
+
+        <!-- end content section -->
+        {% endblock %}
+
+        <!-- footer -->
+        <footer>
+            <div class=" bg-white footer-top">
+                <div class="container">
+                    <div class="row margin-four">
+                        <div class="col-md-4 col-sm-4 text-center"><i class="icon-phone small-icon black-text"></i><h6 class="black-text margin-two no-margin-bottom">{{ contact.phone }}</h6></div>
+                        <div class="col-md-4 col-sm-4 text-center"><i class="icon-map-pin small-icon black-text"></i><h6 class="black-text margin-two no-margin-bottom">{{ contact.address }}</h6></div>
+                        <div class="col-md-4 col-sm-4 text-center"><i class="icon-envelope small-icon black-text"></i><h6 class="margin-two no-margin-bottom"><a href="mailto:{{ contact.email }}" class="black-text">{{ contact.email }}</a></h6></div>
+                    </div>
+                </div>
+            </div>
+            <div class="container footer-middle">
+                <div class="row margin-four no-margin-bottom">
+                    <div class="col-md-6 col-sm-12 sm-text-center sm-margin-bottom-four">
+                        <ul class="list-inline footer-link text-uppercase">
+                            <li><a href="{% url 'Restaurant:home' %}">Home</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 col-sm-12 footer-social text-right sm-text-center">
+                        {% for item in profile %}
+                        <a target="_blank" href="{{ item.link }}"><i class="fa-brands fa-{{item.name}}" aria-hidden="true"></i></a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid bg-dark-gray footer-bottom">
+                <div class="container">
+                    <div class="row margin-three">
+                        <!-- copyright -->
+                        <div class="col-md-6 col-sm-6 col-xs-12 copyright text-left letter-spacing-1 xs-text-center xs-margin-bottom-one">
+                            &copy; 2022 Restaurant Theme is proudly powered by SANA ZAREI.
+                        </div>
+                        <!-- end copyright -->
+                    </div>
+                </div>
+            </div>
+
+            <a href="javascript:;" class="scrollToTop"><i class="fa fa-angle-up"></i></a> 
+
+        </footer>
+        <!-- end footer -->
+        <!-- javascript libraries / javascript files set #1 --> 
+        <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/modernizr.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script> 
+        <script type="text/javascript" src="{% static 'js/bootstrap-hover-dropdown.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/jquery.easing.1.3.js' %}"></script> 
+        <script type="text/javascript" src="{% static 'js/skrollr.min.js' %}"></script>  
+        <script type="text/javascript" src="{% static 'js/smooth-scroll.js' %}"></script>
+        <!-- jquery appear -->
+        <script type="text/javascript" src="{% static 'js/jquery.appear.js' %}"></script>
+        <!-- animation -->
+        <script type="text/javascript" src="{% static 'js/wow.min.js' %}"></script>
+        <!-- page scroll -->
+        <script type="text/javascript" src="{% static 'js/page-scroll.js' %}"></script>
+        <!-- easy piechart-->
+        <script type="text/javascript" src="{% static 'js/jquery.easypiechart.js' %}"></script>
+        <!-- parallax -->
+        <script type="text/javascript" src="{% static 'js/jquery.parallax-1.1.3.js' %}"></script>
+        <!--portfolio with shorting tab --> 
+        <script type="text/javascript" src="{% static 'js/jquery.isotope.min.js' %}"></script> 
+        <!-- owl slider  -->
+        <script type="text/javascript" src="{% static 'js/owl.carousel.min.js' %}"></script>
+        <!-- magnific popup  -->
+        <script type="text/javascript" src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/popup-gallery.js' %}"></script>
+        <!-- text effect  -->
+        <script type="text/javascript" src="{% static 'js/text-effect.js' %}"></script>
+        <!-- revolution slider  -->
+        <script type="text/javascript" src="{% static 'js/jquery.tools.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/jquery.revolution.js' %}"></script>
+        <!-- counter  -->
+        <script type="text/javascript" src="{% static 'js/counter.js' %}"></script>
+        <!-- countTo -->
+        <script type="text/javascript" src="{% static 'js/jquery.countTo.js' %}"></script>
+        <!-- fit videos  -->
+        <script type="text/javascript" src="{% static 'js/jquery.fitvids.js' %}"></script>
+        <!-- imagesloaded  -->
+        <script type="text/javascript" src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
+        <!-- hamburger menu-->
+        <script type="text/javascript" src="{% static 'js/classie.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/hamburger-menu.js' %}"></script>
+        <!-- setting --> 
+        <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+
+        <script>
+            const form3 = document.getElementById("registerform");
+            form3.addEventListener("submit", submitHandler);
+
+            function submitHandler(event) {
+                event.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'Accounts:register' %}",
+                    data: $("#registerform").serialize(),
+                    dataType: "json",
+                    success: function sucessHandler(data)
+                    {
+                        if (data.msg === "Success") 
+                        {
+                            alert("Sign Up completed");
+                            document.getElementById("registerform").reset();
+                            window.location.href = "{% url 'Accounts:login' %}";
+                        }
+                        else if (data.msg === "Error")
+                        {
+                            alert("This username or Email has already been registered");
+                        }
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>

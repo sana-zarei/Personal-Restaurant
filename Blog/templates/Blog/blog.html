@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block pagetitle %} BLOG {% endblock %}
+{% block title %} BLOG {% endblock %}
+{% block breadcrumb0 %} BLOG {% endblock %}
+{% block breadcrumb %}  {% endblock %}
+
+{% block main %}
+    <!-- content section -->
+        <section class="wow fadeIn">
+            <div class="container">
+                <div class="row blog-3col">
+                    {% for item in articles %}
+                    <!-- post item -->
+                    <div class="col-md-4 col-sm-6 col-xs-6 blog-listing wow fadeInUp" data-wow-duration="300ms">
+                        {% if item.image %}
+                        <div class="blog-image"><a href="{% url 'Blog:blogdetails' item.slug %}"><img src="{{item.image.url}}" alt=""></a></div>
+                        {% endif %}
+                        <div class="blog-details">
+                            <div class="blog-date">Posted by <a href="">{{item.author}}</a> | {{item.publish}}</div>
+                            <div class="blog-title"><a href="{% url 'Blog:blogdetails' item.slug %}">{{item.title}}</a></div>
+                            <div class="blog-short-description">{{item.description|truncatewords:15}}</div>
+                            <div class="separator-line bg-black no-margin-lr"></div>
+                            {% comment %} <div>
+                                <a href="#" class="blog-like"><i class="fa fa-heart-o">Likes</i></a>
+                                <a href="#" class="blog-share"><i class="fa fa-share-alt">Share</i></a>
+                                <a href="#" class="comment"><i class="fa fa-comment-o">{{item.comment_count}} comment</i></a>
+                            </div> {% endcomment %}
+                        </div>
+                    </div>
+                    <!-- end post item -->        
+                    {% endfor %}     
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12 wow fadeInUp">
+                    {% if articles.has_other_pages %}
+                        <!-- pagination -->
+                        <div class="pagination">
+                            {% if articles.has_previous %}
+                            <a href="?page={{articles.previous_page_number}}"><img src="{% static 'images/arrow-pre-small.png' %}" alt=""/></a>
+                            {% endif %}
+
+                            {% for i in articles.paginator.page_range %}
+                            {% if articles.number == i %}
+                            <a href="?page={{articles.next.page_number}}" class="active">{{i}}</a>
+                            {% else %}
+                            <a href="?page={{i}}">{{i}}</a>
+                            {% endif %}
+                            {% endfor %}
+
+                            {% if articles.has_next %}
+                            <a href="?page={{articles.next_page_number}}"><img src="{% static 'images/arrow-next-small.png' %}" alt=""/></a>
+                            {% endif %}
+                        </div>
+                        <!-- end pagination -->
+                    {% endif %}
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end content section -->
+{% endblock %}
+
